@@ -21,21 +21,21 @@
       var template = this.template(this.model.toJSON());
       this.$el.html(template);
       return this;
-    },
-    events: {
-      'click .command': 'sayHello'
-    },
-    sayHello: function  () {
-      alert('Hello!');
     }
   });
 
-  var taskView = new TaskView({
-    model: task
+  // Collection
+
+  var Tasks = Backbone.Collection.extend({
+    model: Task
   });
 
-  console.log(taskView.render().el);
+  var tasks = new Tasks([
+      { title: 'task1', completed: true },
+      { title: 'task2' },
+      { title: 'task3' }
+  ]);
 
-  $('body').append(taskView.render().el);
+  console.log(tasks.toJSON());
 
 }());
