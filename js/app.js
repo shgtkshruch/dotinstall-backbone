@@ -21,6 +21,12 @@
       var template = this.template(this.model.toJSON());
       this.$el.html(template);
       return this;
+    },
+    events: {
+      'click': 'sayHello'
+    },
+    sayHello: function  () {
+      alert('Hello!');
     }
   });
 
