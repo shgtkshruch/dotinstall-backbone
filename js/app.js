@@ -23,7 +23,7 @@
       return this;
     },
     events: {
-      'click': 'sayHello'
+      'click .command': 'sayHello'
     },
     sayHello: function  () {
       alert('Hello!');
