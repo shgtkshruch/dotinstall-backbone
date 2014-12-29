@@ -13,9 +13,12 @@
     completed: true
   });
 
-  console.log(task1);
-
-  // show only attributes
+  // setter
+  task1.set('title', 'newTitle');
   console.log(task1.toJSON());
+
+  // getter
+  var title = task1.get('title');
+  console.log(title);
   
 }());
