@@ -15,13 +15,15 @@
   // View
 
   var TaskView = Backbone.View.extend({
-    tagName: 'li'
+    tagName: 'li',
+    className: 'liClass',
+    id: 'liId'
   });
 
   var taskView = new TaskView({
     model: task
   });
 
-  console.log(taskView.$el);
+  console.log(taskView.el);
 
 }());
