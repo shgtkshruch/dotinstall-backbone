@@ -30,12 +30,30 @@
     model: Task
   });
 
+  var TasksView = Backbone.View.extend({
+    tagName: 'ul',
+    render: function () {
+      this.collection.each(function (task) {
+        var taskView = new TaskView({
+          model: task
+        });
+        this.$el.append(taskView.render().el);
+      }.bind(this));
+
+      return this;
+    }
+  });
+
   var tasks = new Tasks([
       { title: 'task1', completed: true },
       { title: 'task2' },
       { title: 'task3' }
   ]);
 
-  console.log(tasks.toJSON());
+  var tasksView = new TasksView({
+    collection: tasks
+  });
+
+  $('#tasks').html(tasksView.render().el);
 
 }());
